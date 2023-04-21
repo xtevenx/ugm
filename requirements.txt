@@ -1,0 +1,2 @@
+Jinja2==3.1.2
+minify-html==0.10.8
