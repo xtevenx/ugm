@@ -7,9 +7,34 @@ a:hover {
 }
 
 body {
-  font-family: "Inter var", sans-serif;
+  font-family: 'Inter var', sans-serif;
   margin: auto;
   width: 720px;
+}
+
+p {
+  margin: 0.5em;
+}
+
+.tooltip {
+  overflow: auto;
+  position: absolute;
+
+  border-radius: 0.5em;
+  padding: 0.5em;
+
+  height: 240px;
+  width: 480px;
+
+  opacity: 0;
+  transition: all 0.2s ease-out;
+  translate: 0 0.5em;
+}
+
+.tooltip.display {
+  opacity: 1;
+  transition: all 0.2s ease-out;
+  translate: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +51,11 @@ body {
     background: #404040;
     color: #ffffff;
   }
+
+  .tooltip {
+    background: #292929;
+    box-shadow: 0 0 0.5em #1a1a1a;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -41,5 +71,10 @@ body {
   ::selection {
     background: #80cbc440;
     color: #546e7a;
+  }
+
+  .tooltip {
+    background: #ffffff;
+    box-shadow: 0 0 0.5em #eeeeee;
   }
 }
