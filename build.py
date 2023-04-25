@@ -7,7 +7,7 @@ import minify_html
 PANDOC_COMMAND: list[str] = ['pandoc', '--mathjax', '--to=html5']
 TEMPLATE_FILE: str = 'template.html'
 
-INPUTS: list[str] = ['math340']
+INPUTS: list[str] = ['algebra']
 FORMAT_INPUT: str = '{}.tex'
 FORMAT_OUTPUT: str = '{}.html'
 
