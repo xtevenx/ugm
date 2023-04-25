@@ -4,10 +4,10 @@
   function onElement(elem, event) {
     rect = elem.getBoundingClientRect();
     return (
-      Math.floor(rect.left) <= event.clientX &&
-      Math.floor(rect.right) > event.clientX &&
-      Math.floor(rect.top) <= event.clientY &&
-      Math.floor(rect.bottom) > event.clientY
+      rect.left <= event.clientX &&
+      rect.right >= event.clientX &&
+      rect.top <= event.clientY &&
+      rect.bottom >= event.clientY
     );
   }
 
@@ -15,8 +15,7 @@
   const tooltipStack = [];
 
   // Remove tooltips that are not needed.
-  // clearStack(event: MouseEvent) -> undefined
-  function clearStack(event) {
+  document.addEventListener('mousemove', (event) => {
     while (
       tooltipStack.length &&
       !onElement(tooltipStack.at(-1), event) &&
@@ -32,7 +31,15 @@
 
       refStack.pop();
     }
-  }
+  });
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  // Set mouse coordinates to—currently—centre tooltips (may add other stuff).
+  document.addEventListener('mousemove', (event) => {
+    (mouseX = event.clientX), (mouseY = event.clientY);
+  });
 
   const body = document.getElementById('body');
 
@@ -45,7 +52,6 @@
 
     const tooltip = document.createElement('div');
 
-    tooltip.addEventListener('mouseleave', clearStack);
     tooltip.classList.add('tooltip');
     tooltip.innerHTML = html;
 
@@ -55,12 +61,12 @@
     const refRect = ref.getBoundingClientRect();
     const tooltipRect = tooltip.getBoundingClientRect();
 
-    const targetLeft =
-      window.scrollX + refRect.left + (refRect.width - tooltipRect.width) / 2;
-
     tooltip.style.left =
       Math.min(
-        Math.max(targetLeft, bodyRect.left),
+        Math.max(
+          window.scrollX + mouseX - tooltipRect.width / 2,
+          bodyRect.left
+        ),
         bodyRect.right - tooltipRect.width
       ) + 'px';
 
@@ -81,8 +87,6 @@
   function setupReference(ref) {
     const href = ref.attributes.href.nodeValue;
     if (href.startsWith('#')) {
-      ref.addEventListener('mouseleave', clearStack);
-
       // This setTimeout only works if 'mouseleave' is always triggered before
       // 'mouseenter', which seems to be the case on Firefox. Otherwise, there
       // could be a tooltipTimeout that is overwritten, hence not cancelled.
