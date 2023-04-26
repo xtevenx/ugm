@@ -21,12 +21,13 @@ p {
 
 .tooltip {
   overflow: auto;
-  position: absolute;
+  scrollbar-width: thin;
 
   border-radius: 0.5em;
   padding: 0.5em;
   padding-bottom: 0;
 
+  position: absolute;
   height: 240px;
   width: 480px;
 
@@ -58,7 +59,7 @@ p {
 
   .tooltip {
     background: #292929;
-    box-shadow: 0 0 0.5em #1a1a1a;
+    box-shadow: 0 0 1em #1a1a1a;
   }
 }
 
@@ -79,6 +80,6 @@ p {
 
   .tooltip {
     background: #ffffff;
-    box-shadow: 0 0 0.5em #eeeeee;
+    box-shadow: 0 0 1em #eae8e8;
   }
 }
