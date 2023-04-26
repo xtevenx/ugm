@@ -18,11 +18,13 @@
 
 \begin{document}
 
+\section{Rings and Fields}
+
 \begin{definition}[Binary Operation]
     \label{def:binary operation}
 
-    \newcommand{\C}{\mathbb{C}}
     \newcommand{\Q}{\mathbb{Q}}
+    \newcommand{\R}{\mathbb{R}}
     \newcommand{\Z}{\mathbb{Z}}
 
     An \textbf{internal binary operation} defined on a set $S$ is a mapping $f:S\times S\to S$.
@@ -30,20 +32,22 @@
 
     The following are examples of binary operations:
     \begin{enumerate}
-        \item Addition on the set $\Z$.
-        \item Subtraction on the set $\Q$.
-        \item Multiplication on the set $\C^{n\times n}$ (the set of $n\times n$ matrices in the complex numbers).
+        \item Addition on the set of nonnegative integers $\Z_{\geq 0}$.
+        \item Subtraction on the set of integers $\Z$.
+        \item Multiplication on the set of $n\times n$ matrices with real number entries $\R^{n\times n}$.
     \end{enumerate}
 
     The following are not binary operations:
     \begin{enumerate}
-        \item Subtraction on the set $\Z_{\geq 0}$ (because $0-1=-1$ is not in $\Z_{\geq 0}$).
-        \item Division on the set $\Q$ (because $1/0$ is not defined).
+        \item Subtraction on the set of nonnegative integers $\Z_{\geq 0}$, because $0-1=-1$ is not in $\Z_{\geq 0}$.
+        \item Division on the set of rational numbers $\Q$, because $1/0$ is not defined.
     \end{enumerate}
 \end{definition}
 
 \begin{definition}[Ring]
     \label{def:ring}
+
+    \newcommand{\Z}{\mathbb{Z}}
 
     A \textbf{ring} is a set $R$ with two \hyperref[def:binary operation]{binary operations}---addition $(+)$ and
     multiplication $(\cdot)$---satisfying the following \textbf{ring axioms}:
@@ -68,6 +72,14 @@
         \item
             Multiplication is distributive over addition, meaning $a\cdot (b+c)=a\cdot b+a\cdot c$ and
             $(b+c)\cdot a=b\cdot a+c\cdot a$ for all $a,b,c\in R$.
+    \end{enumerate}
+
+    The following are examples of rings.
+    \begin{enumerate}
+        \item The set of integers $\Z$ with addition and multiplication defined conventionally.
+        \item
+            The set of $n\times n$ matrices with entries from a ring $R$, along with the addition and multiplication
+            operations copied from $R$.
     \end{enumerate}
 \end{definition}
 
