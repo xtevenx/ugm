@@ -70,7 +70,14 @@
         bodyRect.right - tooltipRect.width
       ) + 'px';
 
-    tooltip.style.top = window.scrollY + refRect.top + refRect.height + 'px';
+    const documentRect = document.documentElement.getBoundingClientRect();
+
+    tooltip.style.top =
+      window.scrollY +
+      (refRect.bottom + tooltipRect.height <= documentRect.bottom
+        ? refRect.bottom
+        : refRect.top - tooltipRect.height) +
+      'px';
 
     tooltip.classList.add('display');
 
