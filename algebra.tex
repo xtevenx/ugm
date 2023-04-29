@@ -1,5 +1,6 @@
 \documentclass{scrartcl}
 
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{hyperref}
@@ -13,12 +14,14 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 
-\theoremstyle{remark}
+% \theoremstyle{remark}
 \newtheorem{remark}{Remark}[section]
 
 \begin{document}
 
 \section{Rings and Fields}
+
+\subsection{Introduction}
 
 \begin{definition}[Binary Operation]
     \label{def:binary operation}
@@ -28,7 +31,8 @@
     \newcommand{\Z}{\mathbb{Z}}
 
     An \textbf{internal binary operation} defined on a set $S$ is a mapping $f:S\times S\to S$.
-    In this document, we will refer to this simply as a \textbf{binary operation}.
+
+    In this document, we will refer to these simply as \textbf{binary operations}.
 
     The following are examples of binary operations:
     \begin{enumerate}
@@ -84,6 +88,20 @@
 
     By convention, the addition operation of a ring is denoted $(+)$, and the multiplication operation of a ring is
     denoted $(\cdot)$.
+    We will adopt this notation.
+
+    % pandoc does not properly process enumeration references, otherwise we could label the item and reference that,
+    % instead of hard referencing 'condition (6)'.
+    Some texts do not require condition (6) to hold, that is, their rings do not necessarily an identity element with
+    respect to multiplication.
+    See this \href{https://en.wikipedia.org/wiki/Ring_(mathematics)#Notes_on_the_definition}{Wikipedia article} for
+    more information.
+    As a subjective opinion, this seems to be somewhat of a stylistic choice: if there is no multiplicative identity,
+    then we cannot take the product of an arbitrary collection of elements, because this would be undefined if the
+    collection is empty.
+    On the other hand, sometimes it simply does not make sense to force the existence of a multiplicative identity.
+    This may not be the best example, but later we will define a special type of ``subring'' called an ideal, which
+    should not be defined as requiring a multiplicative identity.
 \end{definition}
 
 \begin{definition}[Commutative ring]
@@ -92,5 +110,71 @@
     A \textbf{commutative ring} is a \hyperref[def:ring]{ring} $R$ with the additional property that the multiplication
     operation is commutative, meaning $a\cdot b=b\cdot a$ for all $a,b\in R$.
 \end{definition}
+
+\begin{proposition}
+    \label{prop:unique additive identity}
+    Let $R$ be a \hyperref[def:ring]{ring}, then $R$ has exactly one additive identity.
+\end{proposition}
+
+\begin{proof}
+    By definition, we know that $R$ has at least one additive identity, so we show it has at most one.
+    Let $r,s\in R$ be two additive identities, and see that $r+s=s$ because $r$ is an additive identity.
+    But also, we see that $r+s=r$, because $s$ is an additive identity, so it follows that $s=r$.
+    This means every additive identity is the same, so there is at most one.
+\end{proof}
+
+\begin{proposition}
+    \label{prop:unique multiplicative identity}
+    Let $R$ be a \hyperref[def:ring]{ring}, then $R$ has exactly one multiplicative identity.
+\end{proposition}
+
+\begin{proof}
+    Refer to the proof of the \hyperref[prop:unique additive identity]{uniqueness of the additive identity}, and
+    replace addition with multiplication.
+\end{proof}
+
+\begin{remark}
+    Since we now know that rings contain exactly one additive and multiplicative identity, we can (and will) denote
+    these values with $0$ and $1$ respectively.
+\end{remark}
+
+\begin{proposition}
+    \label{prop:unique additive inverse}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $r\in R$.
+    Then $r$ has exactly one additive inverse.
+\end{proposition}
+
+\begin{proof}
+    By definition, we know that $r$ has at least one additive inverse, so we show it has at most one.
+    Suppose $s,t\in R$ are both additive inverses of $r$, and see the following:
+    \begin{align}
+        r+s=0\text{ and }r+t=0
+        \implies& s+(r+s)=s+(r+t) \\
+        \iff& (s+r)+s=(s+r)+t \\
+        \iff& 0+s=0+t \\
+        \iff& s=t
+    \end{align}
+    This means every additive inverse of $r$ is the same, so there is at most one.
+\end{proof}
+
+\begin{remark}
+    Let $R$ be a ring, and $r\in R$.
+    Since we now know the additive inverse of $r$ is unique, we can (and will) denote this value with $-r$.
+\end{remark}
+
+\begin{proposition}
+    Let $R$ be a ring, and $r\in R$.
+    Then $0\cdot r=0$.
+\end{proposition}
+
+\begin{proof}
+    Consider the following algebra:
+    \begin{align}
+        0\cdot r=(0+0)\cdot r
+        \iff& 0\cdot r=0\cdot r+0\cdot r \\
+        \iff& 0\cdot r-(0\cdot r)=0\cdot r+0\cdot r-(0\cdot r) \\
+        \iff& 0=0\cdot r
+    \end{align}
+\end{proof}
 
 \end{document}
