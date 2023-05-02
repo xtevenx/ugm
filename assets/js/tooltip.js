@@ -100,7 +100,7 @@
       const html = document.getElementById(href.slice(1)).innerHTML;
       ref.addEventListener(
         'mouseenter',
-        () => (tooltipTimeout = setTimeout(displayTooltip, 200, ref, html))
+        () => (tooltipTimeout = setTimeout(displayTooltip, 400, ref, html))
       );
       ref.addEventListener(
         'mouseleave',

@@ -18,6 +18,10 @@ p {
   text-align: justify;
 }
 
+li > p {
+  margin: 0;
+}
+
 .tooltip {
   overflow: auto;
   scrollbar-width: thin;
