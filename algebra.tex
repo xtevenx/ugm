@@ -1,5 +1,7 @@
 \documentclass{scrartcl}
 
+\KOMAoptions{parskip=half}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -32,8 +34,6 @@
 
     An \textbf{internal binary operation} defined on a set $S$ is a mapping $f:S\times S\to S$.
 
-    In this document, we will refer to these simply as \textbf{binary operations}.
-
     The following are examples of binary operations:
     \begin{enumerate}
         \item Addition on the set of nonnegative integers $\Z_{\geq 0}$.
@@ -46,6 +46,8 @@
         \item Subtraction on the set of nonnegative integers $\Z_{\geq 0}$, because $0-1=-1$ is not in $\Z_{\geq 0}$.
         \item Division on the set of rational numbers $\Q$, because $1/0$ is not defined.
     \end{enumerate}
+
+    In this document, we will refer to these simply as \textbf{binary operations}.
 \end{definition}
 
 \begin{definition}[Ring]
@@ -88,7 +90,9 @@
 
     By convention, the addition operation of a ring is denoted $(+)$, and the multiplication operation of a ring is
     denoted $(\cdot)$.
-    We will adopt this notation.
+    Furthermore, adding an additive inverse is usually shortened to ``subtraction'', meaning $a+(-b)\equiv a-b$, and
+    the multiplication operation is usually shortened to be written without the $(\cdot)$, meaning $a\cdot b\equiv ab$.
+    We will adopt all of these these conventions.
 
     % pandoc does not properly process enumeration references, otherwise we could label the item and reference that,
     % instead of hard referencing 'condition (6)'.
@@ -108,7 +112,7 @@
     \label{def:commutative ring}
 
     A \textbf{commutative ring} is a \hyperref[def:ring]{ring} $R$ with the additional property that the multiplication
-    operation is commutative, meaning $a\cdot b=b\cdot a$ for all $a,b\in R$.
+    operation is commutative, meaning $ab=ba$ for all $a,b\in R$.
 \end{definition}
 
 \begin{proposition}
@@ -117,7 +121,7 @@
 \end{proposition}
 
 \begin{proof}
-    By definition, we know that $R$ has at least one additive identity, so we show it has at most one.
+    By definition, we know that $R$ has at least one additive identity, so we will show it has at most one.
     Let $r,s\in R$ be two additive identities, and see that $r+s=s$ because $r$ is an additive identity.
     But also, we see that $r+s=r$, because $s$ is an additive identity, so it follows that $s=r$.
     This means every additive identity is the same, so there is at most one.
@@ -158,22 +162,47 @@
 \end{proof}
 
 \begin{remark}
-    Let $R$ be a ring, and $r\in R$.
+    Let $R$ be a \hyperref[def:ring]{ring}, and $r\in R$.
     Since we now know the additive inverse of $r$ is unique, we can (and will) denote this value with $-r$.
 \end{remark}
 
 \begin{proposition}
-    Let $R$ be a ring, and $r\in R$.
-    Then $0\cdot r=0$.
+    \label{prop:multiply by zero}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $r\in R$.
+    Then $0r=0$.
 \end{proposition}
 
 \begin{proof}
-    Consider the following algebra:
+    See that
     \begin{align}
-        0\cdot r=(0+0)\cdot r
-        \iff& 0\cdot r=0\cdot r+0\cdot r \\
-        \iff& 0\cdot r-(0\cdot r)=0\cdot r+0\cdot r-(0\cdot r) \\
-        \iff& 0=0\cdot r
+        (0+0)r=0r
+        \iff& 0r+0r=0r \\
+        \iff& 0r+0r-0r=0r-0r \\
+        \iff& 0r=0
+    \end{align}
+\end{proof}
+
+\begin{proposition}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $r,s\in $.
+    Then $(-r)s=-(rs)=r(-s)$.
+\end{proposition}
+
+\begin{proof}
+    For the first equality, we use \hyperref[prop:multiply by zero]{multiplication by zero} to see that
+    \begin{align}
+        0s=0
+        \iff& ((-r)+r)s=0 \\
+        \iff& (-r)s+rs=0 \\
+        \iff& (-r)s+rs-(rs)=0-(rs) \\
+        \iff& (-r)s=-(rs)
+    \end{align}
+    For the second equality, we use the same approach to see that
+    \begin{align}
+        r0=0
+        \iff& r((-s)+s)=0 \\
+        \iff& r(-s)+rs=0 \\
+        \iff& r(-s)+rs-(rs)=0-(rs) \\
+        \iff& r(-s)=-(rs)
     \end{align}
 \end{proof}
 
