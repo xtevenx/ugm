@@ -94,8 +94,8 @@
     the multiplication operation is usually shortened to be written without the $(\cdot)$, meaning $a\cdot b\equiv ab$.
     We will adopt all of these these conventions.
 
-    % pandoc does not properly process enumeration references, otherwise we could label the item and reference that,
-    % instead of hard referencing 'condition (6)'.
+    % NOTE: pandoc does not properly process enumeration references, otherwise we could label the item and reference
+    % that, instead of hard referencing 'condition (6)'.
     Some texts do not require condition (6) to hold, that is, their rings do not necessarily an identity element with
     respect to multiplication.
     See this \href{https://en.wikipedia.org/wiki/Ring_(mathematics)#Notes_on_the_definition}{Wikipedia article} for
@@ -183,7 +183,7 @@
 \end{proof}
 
 \begin{proposition}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $r,s\in $.
+    Let $R$ be a \hyperref[def:ring]{ring}, and $r,s\in R$.
     Then $(-r)s=-(rs)=r(-s)$.
 \end{proposition}
 
@@ -205,5 +205,14 @@
         \iff& r(-s)=-(rs)
     \end{align}
 \end{proof}
+
+\begin{remark}
+    % WARNING: this reference the 'last two proofs', which may not be here if we rearrange the document.
+    From these last two proofs, we see that it is allowed to ``cancel out'' identical addition terms from both sides of
+    an equation.
+    This is due to the associativity and commutativity of addition, along with the existence of an additive identity
+    for every element.
+    Keep this in mind as, in the future, we may not explicitly write the subtraction on both sides.
+\end{remark}
 
 \end{document}
