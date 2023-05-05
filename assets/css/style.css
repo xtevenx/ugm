@@ -12,7 +12,10 @@ body {
   margin: auto;
 
   /* These are determined by the widths of #main and #sidebar set below. */
-  transform: translateX(calc(-260px / 4));
+  transform: translateX(
+    /* Both these divisions should have the same divisor. */
+      max(calc(-260px / 4), calc((260px + 720px - 100vw) / 4))
+  );
   width: calc(260px + 720px);
 }
 
