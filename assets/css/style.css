@@ -12,6 +12,7 @@ body {
 
 p {
   hyphens: auto;
+  line-height: 1.5em;
   text-align: justify;
 }
 
@@ -31,7 +32,7 @@ li > p {
 
 #main {
   box-sizing: border-box;
-  max-width: calc(100% - 16em);
+  max-width: calc(100% - 16em); /* The 16em comes from the width of #sidebar. */
 }
 
 #sidebar {
