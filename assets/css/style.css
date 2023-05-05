@@ -8,9 +8,12 @@ a:hover {
 
 body {
   font-family: 'Inter var', sans-serif;
+  display: flex;
   margin: auto;
-  max-width: 720px;
-  padding: 12px;
+
+  /* These are determined by the widths of #main and #sidebar set below. */
+  transform: translateX(calc(-260px / 4));
+  width: calc(260px + 720px);
 }
 
 p {
@@ -20,6 +23,20 @@ p {
 
 li > p {
   margin: 0;
+}
+
+#main {
+  box-sizing: border-box;
+  width: 720px; /* Don't forget to also change CSS for body */
+}
+
+#sidebar {
+  box-sizing: border-box;
+  width: 260px; /* Don't forget to also change CSS for body */
+
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 .tooltip {
