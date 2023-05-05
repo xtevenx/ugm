@@ -8,15 +8,6 @@ a:hover {
 
 body {
   font-family: 'Inter var', sans-serif;
-  display: flex;
-  margin: auto;
-
-  /* These are determined by the widths of #main and #sidebar set below. */
-  transform: translateX(
-    /* Both these divisions should have the same divisor. */
-      max(calc(-260px / 4), calc((260px + 720px - 100vw) / 4))
-  );
-  width: calc(260px + 720px);
 }
 
 p {
@@ -28,14 +19,24 @@ li > p {
   margin: 0;
 }
 
+#content {
+  display: flex;
+  margin: auto;
+
+  /* The 16em comes from the width of #sidebar. */
+  /* Both these divisions should have the same divisor. */
+  transform: translateX(max(calc(-16em / 4), calc((60em - 100vw) / 4)));
+  max-width: 60em;
+}
+
 #main {
   box-sizing: border-box;
-  width: 720px; /* Don't forget to also change CSS for body */
+  max-width: calc(100% - 16em);
 }
 
 #sidebar {
   box-sizing: border-box;
-  width: 260px; /* Don't forget to also change CSS for body */
+  width: 16em; /* The CSS for #main and #content depend on this value. */
 
   height: 100vh;
   position: sticky;
@@ -62,6 +63,24 @@ li > p {
   opacity: 1;
   transition: all 0.2s ease-out;
   translate: 0;
+}
+
+/* The 8px comes from the usual margin size of `body`. */
+@media (max-width: calc(60em + 2 * 8px)) {
+  #content {
+    transform: none;
+  }
+
+  /* The 60em comes from the width of #content. */
+  /* The 16em comes from the width of #sidebar. */
+  #main {
+    margin: auto;
+    max-width: calc(60em - 16em);
+  }
+
+  #sidebar {
+    display: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

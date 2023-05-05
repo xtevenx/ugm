@@ -41,7 +41,7 @@
     (mouseX = event.clientX), (mouseY = event.clientY);
   });
 
-  const body = document.getElementById('body');
+  const main = document.getElementById('main');
 
   // Display a tooltip box containing `html`, positioned relative to `ref`.
   // displayTooltip(ref: Element, html: String) -> undefined
@@ -57,7 +57,7 @@
 
     document.body.append(tooltip);
 
-    const bodyRect = body.getBoundingClientRect();
+    const mainRect = main.getBoundingClientRect();
     const refRect = ref.getBoundingClientRect();
     const tooltipRect = tooltip.getBoundingClientRect();
 
@@ -65,9 +65,9 @@
       Math.min(
         Math.max(
           window.scrollX + mouseX - tooltipRect.width / 2,
-          bodyRect.left
+          mainRect.left
         ),
-        bodyRect.right - tooltipRect.width
+        mainRect.right - tooltipRect.width
       ) + 'px';
 
     const documentRect = document.documentElement.getBoundingClientRect();

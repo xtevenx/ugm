@@ -20,9 +20,15 @@
     <script defer src="assets/js/tooltip.min.js"></script>
 </head>
 
-<body id="body">
-    <header id="sidebar"><a href="index.html">About</a></header>
-    <div id="main">{{ body }}</div>
+<body>
+    <header id="header">
+        <a href="index.html">About</a>
+        <a href="algebra.html">Algebra</a>
+    </header>
+    <div id="content">
+        <nav id="sidebar"></nav>
+        <div id="main">{{ body }}</div>
+    </div>
 </body>
 
 </html>
