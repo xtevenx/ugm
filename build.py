@@ -4,6 +4,7 @@ import subprocess
 import jinja2
 import minify_html
 
+LATEXMK_COMMAND: list[str] = ['latexmk', '-pdf']
 PANDOC_COMMAND: list[str] = ['pandoc', '--mathjax', '--to=html5']
 TEMPLATE_FILE: str = 'template.html'
 
@@ -29,6 +30,8 @@ if __name__ == '__main__':
         template_string = fp.read()
 
     for f in INPUTS:
+        subprocess.run(LATEXMK_COMMAND + [FORMAT_INPUT.format(f)])
+
         html = subprocess.run(PANDOC_COMMAND + [FORMAT_INPUT.format(f)],
                               capture_output=True,
                               check=True,
