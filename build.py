@@ -10,6 +10,7 @@ TEMPLATE_FILE: str = 'template.html'
 INPUTS: list[str] = ['index', 'algebra']
 FORMAT_INPUT: str = '{}.tex'
 FORMAT_OUTPUT: str = '{}.html'
+FORMAT_DOWNLOAD: str = '{}.pdf'
 
 CSS_DIRECTORY: str = 'assets/css'
 CSS_EXTENSION: str = '.css'
@@ -34,7 +35,7 @@ if __name__ == '__main__':
                               text=True).stdout
 
         template = jinja2.Template(template_string)
-        html = template.render(body=html)
+        html = template.render(body=html, download=FORMAT_DOWNLOAD.format(f))
         html = minify_html.minify(html, minify_css=True, minify_js=True)
 
         with open(FORMAT_OUTPUT.format(f), 'w') as fp:

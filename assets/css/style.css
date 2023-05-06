@@ -20,6 +20,22 @@ li > p {
   margin: 0;
 }
 
+#header {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  top: 5vh;
+  z-index: 99;
+
+  border-bottom-left-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+}
+
+#header > a {
+  padding: 0.5em;
+}
+
 #content {
   display: flex;
   margin: auto;
@@ -99,6 +115,10 @@ li > p {
     color: #ffffff;
   }
 
+  #header {
+    background: #292929;
+  }
+
   .tooltip {
     background: #292929;
     box-shadow: 0 0 1em #1a1a1a;
@@ -118,6 +138,10 @@ li > p {
   ::selection {
     background: #80cbc440;
     color: #546e7a;
+  }
+
+  #header {
+    background: #ffffff;
   }
 
   .tooltip {
