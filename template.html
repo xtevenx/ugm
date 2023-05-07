@@ -8,9 +8,6 @@
         integrity="sha384-PaFjJrzfQNIUio6v7L2ocT4gPOJwuI/678L24xIx66OZPjJioxEnomDejMBYRVe2" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/style.min.css" />
 
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/katex.min.css"
         integrity="sha384-mXD7x5S50Ko38scHSnD4egvoExgMPbrseZorkbE49evAfv9nNcbrXJ8LLNsDgh9d" crossorigin="anonymous" />
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/katex.min.js"
@@ -25,12 +22,12 @@
 </head>
 
 <body>
-    <header id="header">
-        <a href="index.html" class="material-symbols-outlined" title="Home">home</a>
-        <a href="{{ download }}" class="material-symbols-outlined" title="Download">download</a>
-    </header>
     <div id="content">
-        <nav id="sidebar"></nav>
+        <nav id="sidebar">
+            <a href="index.html">README</a>
+            <a href="{{ download }}">Download this page</a>
+            <hr />
+        </nav>
         <div id="main">{{ body }}</div>
     </div>
 </body>

@@ -10,6 +10,10 @@ body {
   font-family: 'Inter var', sans-serif;
 }
 
+hr {
+  width: 100%;
+}
+
 p {
   hyphens: auto;
   line-height: 1.5em;
@@ -18,27 +22,6 @@ p {
 
 li > p {
   margin: 0;
-}
-
-#header {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  right: 0;
-  top: 6rem; /* This is aligned with the content immediately after the first heading. */
-  z-index: 99;
-
-  border-bottom-left-radius: 0.5em;
-  border-top-left-radius: 0.5em;
-}
-
-#header > a {
-  padding: 0.5em;
-
-  /* This works because the icons are roughly square, and we have it because
-   * otherwise there is a flash of bad sizing before the font is loaded. */
-  height: 1em;
-  width: 1em;
 }
 
 #content {
@@ -58,6 +41,8 @@ li > p {
 
 #sidebar {
   box-sizing: border-box;
+  margin-left: calc(1.5em - 8px); /* The 8px comes from the margin of `body`. */
+  margin-right: 1.5em;
   width: 16em; /* The CSS for #main and #content depend on this value. */
 
   height: 60vh;
@@ -91,7 +76,7 @@ li > p {
   translate: 0;
 }
 
-/* The 8px comes from the usual margin size of `body`. */
+/* The 8px comes from the margin of `body`. */
 @media (max-width: calc(60em + 2 * 8px)) {
   #content {
     transform: none;
@@ -124,10 +109,6 @@ li > p {
     color: #ffffff;
   }
 
-  #header {
-    background: #292929;
-  }
-
   .tooltip {
     background: #292929;
     box-shadow: 0 0 1em #1a1a1a;
@@ -147,10 +128,6 @@ li > p {
   ::selection {
     background: #80cbc440;
     color: #546e7a;
-  }
-
-  #header {
-    background: #ffffff;
   }
 
   .tooltip {
