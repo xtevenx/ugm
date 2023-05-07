@@ -86,11 +86,13 @@ li > p {
     transform: none;
   }
 
-  /* The 60em comes from the width of #content. */
-  /* The 16em comes from the width of #sidebar. */
   #main {
     margin: auto;
-    max-width: calc(60em - 16em);
+    max-width: none;
+    /* The 60em comes from the width of #content. */
+    /* The 16em comes from the width of #sidebar. */
+    /* The 8px comes from the margin of body. */
+    width: min(calc(60em - 16em), calc(100vw - 2 * 8px));
   }
 
   #sidebar {
@@ -98,6 +100,7 @@ li > p {
     padding: 1.5em calc(1.5em - 8px) 1.5em 1.5em; /* The dimensions are similar to the original. */
     position: fixed;
     right: 16px;
+    transform: translateY(8px);
     z-index: 99;
   }
 
@@ -107,7 +110,7 @@ li > p {
     height: 1em;
     position: fixed;
     right: 16px;
-    top: 8px;
+    top: 16px;
     width: 1em;
     z-index: 99;
 
