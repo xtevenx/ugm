@@ -54,6 +54,10 @@ li > p {
   line-height: 1.5em;
 }
 
+#sidebar-button {
+  display: none;
+}
+
 .tooltip {
   overflow: auto;
   scrollbar-width: thin;
@@ -90,22 +94,43 @@ li > p {
   }
 
   #sidebar {
-    /* display: none; */
-    padding: 1.5em calc(1.5em - 8px) 1.5em 1.5em; /* The 8px comes from the margin of body. */
+    display: none;
+    padding: 1.5em calc(1.5em - 8px) 1.5em 1.5em; /* The dimensions are similar to the original. */
     position: fixed;
-    right: 8px; /* The 8px comes from the margin of body. */
+    right: 16px;
     z-index: 99;
   }
 
+  #sidebar-button {
+    cursor: pointer;
+    display: block;
+    height: 1em;
+    position: fixed;
+    right: 16px;
+    top: 8px;
+    width: 1em;
+    z-index: 99;
+
+    font-size: 1.67em;
+    padding: 0.2em 0.5em 0.8em; /* The padding is offset to center the text. */
+    text-align: center;
+  }
+
+  .sidebar-display {
+    display: flex !important; /* The !important is to induce higher precedence than #sidebar. */
+  }
+
   @media (prefers-color-scheme: dark) {
-    #sidebar {
+    #sidebar,
+    #sidebar-button {
       background: #292929;
       box-shadow: 0 0 1em #1a1a1a;
     }
   }
 
   @media (prefers-color-scheme: light) {
-    #sidebar {
+    #sidebar,
+    #sidebar-button {
       background: #ffffff;
       box-shadow: 0 0 1em #eae8e8;
     }
