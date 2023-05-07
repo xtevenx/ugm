@@ -11,6 +11,7 @@ body {
 }
 
 hr {
+  border-bottom: none; /* border-top is 1px by defuault. */
   width: 100%;
 }
 
@@ -41,13 +42,12 @@ li > p {
 
 #sidebar {
   box-sizing: border-box;
-  margin-left: calc(1.5em - 8px); /* The 8px comes from the margin of `body`. */
-  margin-right: 1.5em;
+  padding: 1.5em 1.5em 1.5em calc(1.5em - 8px); /* The 8px comes from the margin of body. */
   width: 16em; /* The CSS for #main and #content depend on this value. */
 
   height: 60vh;
   position: sticky;
-  top: 6rem; /* This is aligned with the content immediately after the first heading. */
+  top: 4.34em; /* This is aligned with the content immediately after the first heading. */
 
   display: flex;
   flex-direction: column;
@@ -76,7 +76,7 @@ li > p {
   translate: 0;
 }
 
-/* The 8px comes from the margin of `body`. */
+/* The 8px comes from the margin of body. */
 @media (max-width: calc(60em + 2 * 8px)) {
   #content {
     transform: none;
@@ -90,7 +90,25 @@ li > p {
   }
 
   #sidebar {
-    display: none;
+    /* display: none; */
+    padding: 1.5em calc(1.5em - 8px) 1.5em 1.5em; /* The 8px comes from the margin of body. */
+    position: fixed;
+    right: 8px; /* The 8px comes from the margin of body. */
+    z-index: 99;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #sidebar {
+      background: #292929;
+      box-shadow: 0 0 1em #1a1a1a;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    #sidebar {
+      background: #ffffff;
+      box-shadow: 0 0 1em #eae8e8;
+    }
   }
 }
 
