@@ -17,8 +17,13 @@
   });
 
   // Configure the dropdown sidebar toggle function for narrow viewports.
-  const sidebarButton = document.getElementById('sidebar-button');
-  sidebarButton.addEventListener('click', () => {
+  document.getElementById('sidebar-button').addEventListener('click', () => {
     sidebar.classList.toggle('sidebar-display');
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('#main')) {
+      sidebar.classList.remove('sidebar-display');
+    }
   });
 })();
