@@ -25,7 +25,7 @@ li > p {
   flex-direction: column;
   position: fixed;
   right: 0;
-  top: 5vh;
+  top: 6rem; /* This is aligned with the content immediately after the first heading. */
   z-index: 99;
 
   border-bottom-left-radius: 0.5em;
@@ -34,6 +34,11 @@ li > p {
 
 #header > a {
   padding: 0.5em;
+
+  /* This works because the icons are roughly square, and we have it because
+   * otherwise there is a flash of bad sizing before the font is loaded. */
+  height: 1em;
+  width: 1em;
 }
 
 #content {
@@ -55,9 +60,13 @@ li > p {
   box-sizing: border-box;
   width: 16em; /* The CSS for #main and #content depend on this value. */
 
-  height: 100vh;
+  height: 60vh;
   position: sticky;
-  top: 0;
+  top: 6rem; /* This is aligned with the content immediately after the first heading. */
+
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5em;
 }
 
 .tooltip {

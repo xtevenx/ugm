@@ -109,5 +109,5 @@
     }
   }
 
-  [...document.getElementsByTagName('a')].forEach(setupReference);
+  [...main.getElementsByTagName('a')].forEach(setupReference);
 })();
