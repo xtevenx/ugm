@@ -3,18 +3,15 @@
 \usepackage{template}
 
 \begin{document}
-
 \section{Rings and Fields}
 
 \subsection{Introduction}
 
 \begin{definition}[Binary Operation]
     \label{def:binary operation}
-
     \newcommand{\Q}{\mathbb{Q}}
     \newcommand{\R}{\mathbb{R}}
     \newcommand{\Z}{\mathbb{Z}}
-
     An \textbf{internal binary operation} defined on a set $S$ is a mapping $f:S\times S\to S$.
 
     In this document, we will refer to these simply as \textbf{binary operations}.
@@ -35,9 +32,7 @@
 
 \begin{definition}[Ring]
     \label{def:ring}
-
     \newcommand{\Z}{\mathbb{Z}}
-
     A \textbf{ring} is a set $R$ with two \hyperref[def:binary operation]{binary operations}---addition $(+)$ and
     multiplication $(\cdot)$---satisfying the following \textbf{ring axioms}:
     \begin{enumerate}
@@ -93,7 +88,6 @@
 
 \begin{definition}[Commutative ring]
     \label{def:commutative ring}
-
     A \textbf{commutative ring} is a \hyperref[def:ring]{ring} $R$ with the additional property that the multiplication
     operation is commutative, meaning $ab=ba$ for all $a,b\in R$.
 \end{definition}
@@ -105,8 +99,8 @@
 
 \begin{proof}
     By definition, we know that $R$ has at least one additive identity, so we will show it has at most one.
-    Let $r,s\in R$ be two additive identities, and see that $r+s=s$ because $r$ is an additive identity.
-    But also, we see that $r+s=r$, because $s$ is an additive identity, so it follows that $s=r$.
+    Let $a,b\in R$ be two additive identities, and see that $a+b=b$ because $a$ is an additive identity.
+    But also, we see that $a+b=a$, because $b$ is an additive identity, so it follows that $a=b$.
     This means every additive identity is the same, so there is at most one.
 \end{proof}
 
@@ -127,65 +121,65 @@
 
 \begin{proposition}
     \label{prop:unique additive inverse}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $r\in R$.
-    Then $r$ has exactly one additive inverse.
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
+    Then $a$ has exactly one additive inverse.
 \end{proposition}
 
 \begin{proof}
-    By definition, we know that $r$ has at least one additive inverse, so we show it has at most one.
-    Suppose $s,t\in R$ are both additive inverses of $r$, and see the following:
+    By definition, we know that $a$ has at least one additive inverse, so we show it has at most one.
+    Suppose $b,c\in R$ are both additive inverses of $a$, and see the following:
     \begin{align}
-        r+s=0\text{ and }r+t=0
-        \implies& s+(r+s)=s+(r+t) \\
-        \iff& (s+r)+s=(s+r)+t \\
-        \iff& 0+s=0+t \\
-        \iff& s=t
+        a+b=0\text{ and }a+c=0
+        \implies& b+(a+b)=b+(a+c) \\
+        \iff& (b+a)+b=(b+a)+c \\
+        \iff& 0+b=0+c \\
+        \iff& b=c
     \end{align}
-    This means every additive inverse of $r$ is the same, so there is at most one.
+    This means every additive inverse of $a$ is the same, so there is at most one.
 \end{proof}
 
 \begin{remark}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $r\in R$.
-    Since we now know the additive inverse of $r$ is unique, we can (and will) denote this value with $-r$.
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
+    Since we now know the additive inverse of $a$ is unique, we can (and will) denote this value with $-a$.
 \end{remark}
 
 \begin{proposition}
     \label{prop:multiply by zero}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $r\in R$.
-    Then $0r=0$.
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
+    Then $0a=0$.
 \end{proposition}
 
 \begin{proof}
     See that
     \begin{align}
-        (0+0)r=0r
-        \iff& 0r+0r=0r \\
-        \iff& 0r+0r-0r=0r-0r \\
-        \iff& 0r=0
+        (0+0)a=0a
+        \iff& 0a+0a=0a \\
+        \iff& 0a+0a-(0a)=0a-(0a) \\
+        \iff& 0a=0
     \end{align}
 \end{proof}
 
 \begin{proposition}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $r,s\in R$.
-    Then $(-r)s=-(rs)=r(-s)$.
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a,b\in R$.
+    Then $(-a)b=-(ab)=a(-b)$.
 \end{proposition}
 
 \begin{proof}
     For the first equality, we use \hyperref[prop:multiply by zero]{multiplication by zero} to see that
     \begin{align}
-        0s=0
-        \iff& ((-r)+r)s=0 \\
-        \iff& (-r)s+rs=0 \\
-        \iff& (-r)s+rs-(rs)=0-(rs) \\
-        \iff& (-r)s=-(rs)
+        0b=0
+        \iff& ((-a)+a)b=0 \\
+        \iff& (-a)b+ab=0 \\
+        \iff& (-a)b+ab-(ab)=0-(ab) \\
+        \iff& (-a)b=-(ab)
     \end{align}
     For the second equality, we use the same approach to see that
     \begin{align}
-        r0=0
-        \iff& r((-s)+s)=0 \\
-        \iff& r(-s)+rs=0 \\
-        \iff& r(-s)+rs-(rs)=0-(rs) \\
-        \iff& r(-s)=-(rs)
+        a0=0
+        \iff& a((-b)+b)=0 \\
+        \iff& a(-b)+ab=0 \\
+        \iff& a(-b)+ab-(ab)=0-(ab) \\
+        \iff& a(-b)=-(ab)
     \end{align}
 \end{proof}
 
@@ -197,5 +191,34 @@
     for every element.
     Keep this in mind as, in the future, we may not explicitly write the subtraction on both sides.
 \end{remark}
+
+\begin{definition}[Zero divisor]
+    \label{def:zero divisor}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
+    Then $a$ is a \textbf{left zero divisor} if there exists nonzero $b\in R$ such that $ab=0$, a
+    \textbf{right zero divisor} if there exists nonzero $c\in R$ such that $ca=0$, and a \textbf{zero divisor} if it is
+    either a left zero divisor or a right zero divisor.
+\end{definition}
+
+\begin{proposition}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$ nonzero.
+    Then $a$ is a \hyperref[def:zero divisor]{left zero divisor} if and only if there exists $b,c\in R$ satisfying
+    $b\neq c$ and $ab=ac$.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a$ is a left zero divisor, so there exists $b\in R$ so that $ab=0$.
+    Let $c=0$ and see that $ab=ac=0$.
+
+    Suppose there exists $b,c\in R$ satisfying $b\neq c$ and $ab=ac$.
+    We see that $ab=ac\iff ab-ac=0\iff a(b-c)=0$, but since $b\neq c\iff b-c\neq 0$, this means $a$ is a left zero
+    divisor.
+\end{proof}
+
+\begin{definition}[Integral domain]
+    An \textbf{integral domain} is a \hyperref[def:commutative ring]{commutative ring} $R$ with the additional property
+    that $ab=0\implies a=0\text{ or }b=0$ for all $a,b\in R$.
+    This is equivalent to saying that $R$ has no nonzero zero divisors.
+\end{definition}
 
 \end{document}

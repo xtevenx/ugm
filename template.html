@@ -22,14 +22,17 @@
     <script defer src="assets/js/tooltip.min.js"></script>
 </head>
 
-<body id="content">
-    <div id="sidebar-button">\(\equiv\)</div>
-    <nav id="sidebar">
-        <a href="index.html">README</a>
-        <a href="{{ download }}">Download this page</a>
-        <hr />
-    </nav>
-    <div id="main">{{ body }}</div>
+<body>
+    <div id="content">
+        <div id="sidebar-button">\(\equiv\)</div>
+        <nav id="sidebar">
+            <a href="index.html">README</a>
+            <a href="{{ download }}">Download this page</a>
+            <hr />
+        </nav>
+        <div id="main">{{ body }}</div>
+    </div>
+    <!-- We append tooltips here, so body should not be the same as #content. -->
 </body>
 
 </html>
