@@ -207,8 +207,8 @@
 \end{proposition}
 
 \begin{proof}
-    Suppose $a$ is a left zero divisor, so there exists $b\in R$ so that $ab=0$.
-    Let $c=0$ and see that $ab=ac=0$.
+    Suppose $a$ is a left zero divisor, so there exists nonzero $b\in R$ such that $ab=0$.
+    Set $c=0$ and see that $b\neq c$ and $ab=ac$.
 
     Suppose there exists $b,c\in R$ satisfying $b\neq c$ and $ab=ac$.
     We see that $ab=ac\iff ab-ac=0\iff a(b-c)=0$, but since $b\neq c\iff b-c\neq 0$, this means $a$ is a left zero
@@ -218,7 +218,36 @@
 \begin{definition}[Integral domain]
     An \textbf{integral domain} is a \hyperref[def:commutative ring]{commutative ring} $R$ with the additional property
     that $ab=0\implies a=0\text{ or }b=0$ for all $a,b\in R$.
-    This is equivalent to saying that $R$ has no nonzero zero divisors.
+    This is equivalent to saying that $R$ has no nonzero \hyperref[def:zero divisor]{zero divisors}.
+\end{definition}
+
+\begin{definition}[Unit]
+    \label{def:unit}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
+    Then $a$ is a \textbf{unit} if there exists $b\in R$ such that $ab=1$ and $ba=1$.
+\end{definition}
+
+\begin{proposition}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
+    Then $a$ cannot be both a \hyperref[def:unit]{unit} and a \hyperref[def:zero divisor]{zero divisor}.
+\end{proposition}
+
+\begin{proof}
+    Towards a contradiction, suppose $a$ is both a unit and a zero divisor.
+    Without loss of generality, assume $a$ is a left zero divisor, so there exists nonzero $b\in R$ such that $ab=0$.
+    Since $a$ is a unit, there exists $c\in R$ such that $ca=1$.
+    Now we see that $ab=0\iff cab=c0\iff b=0$, but $b$ is nonzero, a contradiction.
+\end{proof}
+
+\begin{definition}[Zero ring]
+    \label{def:nonzero ring}
+    A \textbf{zero ring} is a \hyperref[def:ring]{ring} containing a single element.
+\end{definition}
+
+\begin{definition}[Field]
+    \label{def:field}
+    A \textbf{field} is a \hyperref[def:nonzero ring]{nonzero} \hyperref[def:commutative ring]{commutative ring} $R$
+    with the additional property that every nonzero element is a unit.
 \end{definition}
 
 \end{document}

@@ -60,7 +60,7 @@ li > p {
 
 .tooltip {
   overflow: auto;
-  scrollbar-width: thin;
+  scrollbar-width: none;
 
   border-radius: 0.5em;
   padding: 0 1em;
@@ -72,6 +72,10 @@ li > p {
   opacity: 0;
   transition: all 0.2s ease-out;
   translate: 0 0.5em;
+}
+
+.tooltip::-webkit-scrollbar {
+  display: none;
 }
 
 .tooltip.display {
