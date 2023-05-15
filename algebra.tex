@@ -228,6 +228,22 @@
 \end{definition}
 
 \begin{proposition}
+    \label{prop:unique multiplicative inverse}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$ a unit.
+    Then $a$ has exactly one multiplicative inverse.
+\end{proposition}
+
+\begin{proof}
+    Refer to the proof of the \hyperref[prop:unique additive inverse]{uniqueness of the additive inverse}, and replace
+    addition with multiplication and $0$ with $1$.
+\end{proof}
+
+\begin{remark}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$ a unit.
+    Since we now know the multiplicative inverse of $a$ is unique, we can (and will) denote this value with $a^{-1}$.
+\end{remark}
+
+\begin{proposition}
     Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
     Then $a$ cannot be both a \hyperref[def:unit]{unit} and a \hyperref[def:zero divisor]{zero divisor}.
 \end{proposition}
@@ -242,12 +258,62 @@
 \begin{definition}[Zero ring]
     \label{def:nonzero ring}
     A \textbf{zero ring} is a \hyperref[def:ring]{ring} containing a single element.
+    This kind of ring is ``zero'' because the single element must be the additive identity, denoted by $0$.
 \end{definition}
 
 \begin{definition}[Field]
     \label{def:field}
     A \textbf{field} is a \hyperref[def:nonzero ring]{nonzero} \hyperref[def:commutative ring]{commutative ring} $R$
-    with the additional property that every nonzero element is a unit.
+    with the additional property that every nonzero element is a \hyperref[def:unit]{unit}.
 \end{definition}
+
+\begin{definition}[Characteristic]
+    \label{def:characteristic}
+    The \textbf{characteristic} of a \hyperref[def:ring]{ring} $R$ is the least positive integer $c$ satisfying
+    $\underbrace{1+\dots+1}_{c\text{ times}}=0$.
+    If such an integer does not exist, then the characteristic is $0$.
+\end{definition}
+
+\begin{proposition}
+    Let $R$ be a \hyperref[def:ring]{ring} with \hyperref[def:characteristic]{characteristic} $c$.
+    If $c$ is a composite number, then $R$ has \hyperref[def:zero divisor]{zero divisors}.
+\end{proposition}
+
+\begin{proof}
+    Since $c$ is composite, there exists $m,n\in\mathbb{Z}_{\geq 0}$ satisfying $c=mn$ and $m,n<c$.
+    Let $r=\underbrace{1+\dots+1}_{m\text{ times}}\in R$ and $s=\underbrace{1+\dots+1}_{n\text{ times}}\in R$, which
+    are both nonzero by minimality of $c$.
+    Now distributivity gives us
+    \[rs=(\underbrace{1+\dots+1}_{m\text{ times}})(\underbrace{1+\dots+1}_{n\text{ times}})=\underbrace{1+\dots+1}_{c\text{ times}}=0,\]
+    so $r$ and $s$ are zero divisors in $R$.
+\end{proof}
+
+\begin{theorem}[Euler]
+    Let $R$ be a \hyperref[def:commutative ring]{commutative ring}, and $R^\times$ the set of
+    \hyperref[def:unit]{units} in $R$.
+    If $n\coloneqq\lvert R^\times\rvert$ is finite, then $a^n=1$ for all $a\in R^\times$.
+\end{theorem}
+
+\begin{proof}
+    Let $\phi:R^\times\to R^\times$ be a mapping defined by $r\mapsto ar$.
+    Since $\phi$ is a mapping between equally sized finite sets, we will show that it is injective, which would imply
+    that it is bijective.
+    See that $\phi(r)=\phi(s)\iff ar=as\iff (a^{-1})ar=(a^{-1})as\iff r=s$.
+
+    Now we know that $\phi$ is a bijection, which means $R^\times=\phi(R^\times)$.
+    The theorem follows from the following equality of products:
+    \begin{align}
+        \prod_{r\in R^\times}\phi(r)=\prod_{r\in R^\times}r
+        \iff&\prod_{r\in R^\times}ar=\prod_{r\in R^\times}r \\
+        \iff&a^n\prod_{r\in R^\times}r=\prod_{r\in R^\times}r \\
+        \iff&a^n=1
+    \end{align}
+\end{proof}
+
+\begin{remark}
+    We note that commutativity of multiplication is required for this proof, otherwise we couldn't pull out a factor of
+    $a$ from each factor of the left hand side.
+    However Euler's theorem also holds for noncommutative rings.
+\end{remark}
 
 \end{document}
