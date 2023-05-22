@@ -130,58 +130,58 @@ li > p {
   @media (prefers-color-scheme: dark) {
     #sidebar,
     #sidebar-button {
-      background: #292929;
-      box-shadow: 0 0 1em #1a1a1a;
+      background: #2f363d;
+      border: thin solid #1b1f23;
     }
   }
 
   @media (prefers-color-scheme: light) {
     #sidebar,
     #sidebar-button {
-      background: #ffffff;
-      box-shadow: 0 0 1em #eae8e8;
+      background: #f3f3f3;
+      border: thin solid #dfe1e4;
     }
   }
 }
 
 @media (prefers-color-scheme: dark) {
   a {
-    color: #80cbc4;
+    color: #79b8ff;
   }
 
   body {
-    background: #212121;
-    color: #b0bec5;
+    background: #24292e;
+    color: #e1e4e8;
   }
 
   ::selection {
-    background: #404040;
+    background: #3392ff44;
     color: #ffffff;
   }
 
   .tooltip {
-    background: #292929;
-    box-shadow: 0 0 1em #1a1a1a;
+    background: #2f363d;
+    border: thin solid #1b1f23;
   }
 }
 
 @media (prefers-color-scheme: light) {
   a {
-    color: #39adb5;
+    color: #005cc5;
   }
 
   body {
-    background: #fafafa;
-    color: #546e7a;
+    background: #f7f8fa;
+    color: #5b6168;
   }
 
   ::selection {
-    background: #80cbc440;
-    color: #546e7a;
+    background: #3a66d150;
+    color: #ffffff;
   }
 
   .tooltip {
-    background: #ffffff;
-    box-shadow: 0 0 1em #eae8e8;
+    background: #f3f3f3;
+    border: thin solid #dfe1e4;
   }
 }
