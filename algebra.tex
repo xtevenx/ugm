@@ -65,26 +65,28 @@
             The set of $n\times n$ matrices with entries from a ring $R$, along with the addition and multiplication
             operations copied from $R$.
     \end{enumerate}
-
-    By convention, the addition operation of a ring is denoted $(+)$, and the multiplication operation of a ring is
-    denoted $(\cdot)$.
-    Furthermore, adding an additive inverse is usually written as ``subtraction'', meaning $a+(-b)\equiv a-b$, and the
-    multiplication operation is usually written without $(\cdot)$, meaning $a\cdot b\equiv ab$.
-    We will adopt all of these these conventions.
-
-    % NOTE: pandoc does not properly process enumeration references, otherwise we could label the item and reference
-    % that, instead of hard referencing 'condition (6)'.
-    Some texts do not require condition (6) to hold, that is, their rings do not necessarily an identity element with
-    respect to multiplication.
-    See this \href{https://en.wikipedia.org/wiki/Ring_(mathematics)#Notes_on_the_definition}{Wikipedia article} for
-    more information.
-    As a subjective opinion, this seems to be somewhat of a stylistic choice: if there is no multiplicative identity,
-    then we cannot take the product of an arbitrary collection of elements, because this would be undefined if the
-    collection is empty.
-    On the other hand, sometimes it simply does not make sense to force the existence of a multiplicative identity.
-    This may not be the best example, but later we will define a special type of ``subring'' called an ideal, which
-    should not be defined as requiring a multiplicative identity.
 \end{definition}
+
+By convention, the addition operation of a ring is denoted $(+)$, and the multiplication operation of a ring is denoted
+$(\cdot)$.
+Furthermore, adding an additive inverse is usually written as ``subtraction'', meaning $a+(-b)\equiv a-b$, and the
+multiplication operation is usually written without $(\cdot)$, meaning $a\cdot b\equiv ab$.
+We will adopt all of these these conventions.
+To provide alternative notation, a ring is generally described $(R,+,\cdot)$, meaning the underlying set is $R$, the
+addition operation is $(+)$, and the multiplication operation is $(\cdot)$.
+
+% NOTE: pandoc does not properly process enumeration references, otherwise we could label the item and reference that,
+% instead of hard referencing 'condition (6)'.
+Some texts do not require condition (6) to hold, that is, their rings do not necessarily an identity element with
+respect to multiplication.
+See this \href{https://en.wikipedia.org/wiki/Ring_(mathematics)#Notes_on_the_definition}{Wikipedia article} for more
+information.
+As a subjective opinion, this seems to be somewhat of a stylistic choice: if there is no multiplicative identity, then
+we cannot take the product of an arbitrary collection of elements, because this would be undefined if the collection is
+empty.
+On the other hand, sometimes it simply does not make sense to force the existence of a multiplicative identity.
+This may not be the best example, but later we will define a special type of ``subring'' called an ideal, which should
+not be defined as requiring a multiplicative identity.
 
 \begin{definition}[Commutative ring]
     \label{def:commutative ring}
@@ -114,10 +116,8 @@
     replace addition with multiplication.
 \end{proof}
 
-\begin{remark}
-    Since we now know that rings contain exactly one additive and multiplicative identity, we can (and will) denote
-    these values with $0$ and $1$ respectively.
-\end{remark}
+Since we now know that rings contain exactly one additive and multiplicative identity, we can (and will) denote these
+values with $0$ and $1$ respectively.
 
 \begin{proposition}
     \label{prop:unique additive inverse}
@@ -138,10 +138,8 @@
     This means every additive inverse of $a$ is the same, so there is at most one.
 \end{proof}
 
-\begin{remark}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
-    Since we now know the additive inverse of $a$ is unique, we can (and will) denote this value with $-a$.
-\end{remark}
+Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
+Since we now know the additive inverse of $a$ is unique, we can (and will) denote this value with $-a$.
 
 \begin{proposition}
     \label{prop:multiply by zero}
@@ -183,14 +181,12 @@
     \end{align}
 \end{proof}
 
-\begin{remark}
-    % WARNING: this reference the 'last two proofs', which may not be here if we rearrange the document.
-    From these last two proofs, we see that it is allowed to ``cancel out'' identical addition terms from both sides of
-    an equation.
-    This is due to the associativity and commutativity of addition, along with the existence of an additive identity
-    for every element.
-    Keep this in mind as, in the future, we may not explicitly write the subtraction on both sides.
-\end{remark}
+% WARNING: this references the 'last two proofs', which may not be here if we rearrange the document.
+From these last two proofs, we see that it is allowed to ``cancel out'' identical addition terms from both sides of an
+equation.
+This is due to the associativity and commutativity of addition, along with the existence of an additive identity for
+every element.
+Keep this in mind as, in the future, we may not explicitly write the subtraction on both sides.
 
 \begin{definition}[Zero divisor]
     \label{def:zero divisor}
@@ -201,7 +197,8 @@
 \end{definition}
 
 \begin{proposition}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$ nonzero.
+    \label{prop:cancellation iff not zero divisor}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
     Then $a$ is a \hyperref[def:zero divisor]{left zero divisor} if and only if there exists $b,c\in R$ satisfying
     $b\neq c$ and $ab=ac$.
 \end{proposition}
@@ -238,10 +235,8 @@
     addition with multiplication and $0$ with $1$.
 \end{proof}
 
-\begin{remark}
-    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$ a unit.
-    Since we now know the multiplicative inverse of $a$ is unique, we can (and will) denote this value with $a^{-1}$.
-\end{remark}
+Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$ a unit.
+Since we now know the multiplicative inverse of $a$ is unique, we can (and will) denote this value with $a^{-1}$.
 
 \begin{proposition}
     Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$.
@@ -310,10 +305,37 @@
     \end{align}
 \end{proof}
 
-\begin{remark}
-    We note that commutativity of multiplication is required for this proof, otherwise we couldn't pull out a factor of
-    $a$ from each factor of the left hand side.
-    However Euler's theorem also holds for noncommutative rings.
-\end{remark}
+We note that the commutativity of multiplication is required for this proof, otherwise we couldn't pull out a factor of
+$a$ from each factor on the left hand side.
+However Euler's theorem also holds for noncommutative rings, although we are currently unable to confirm this.
+
+\begin{proposition}
+    \label{prop:power of zero divisor is not zero divisor}
+    Let $R$ be a \hyperref[def:ring]{ring}, and $a\in R$ not a \hyperref[def:zero divisor]{zero divisor}.
+    If $n$ is a positive integer, then $a^n$ is not a zero divisor.
+\end{proposition}
+
+\begin{proof}
+    For a contradiction, suppose there exists a positive integer $n$ for which $a^n$ is a zero divisor.
+    Let $n$ be the least such positive integer and, by definition, there exists a nonzero $b\in R$ such that $a^nb=0$.
+    By the minimality of $n$, we note that $a^{n-1}$ is not a zero divisor, so $a^{n-1}b$ is nonzero.
+    But $a^nb=a(a^{n-1}b)=0$ implies $a$ is a zero divisor, a contradiction.
+\end{proof}
+
+\begin{proposition}
+    Let $R$ be a \hyperref[def:ring]{ring} whose underlying set is finite, and $a\in R$.
+    Then $a$ is either a \hyperref[def:zero divisor]{zero divisor} or a \hyperref[def:unit]{unit}.
+\end{proposition}
+
+\begin{proof}
+    Suppose $a$ is not a zero divisor, and we will show that $a$ is a unit.
+    Consider the sequence $a,a^2,a^3,\dots$ which, since $a$ is not a zero divisor, only contains nonzero elements.
+    Since $R$ is finite but the sequence is infinite, some element in the sequence must repeat, so there exists
+    positive integers $n,k$ satisfying $a^n=a^{n+k}$.
+    This means $a^n\cdot 1=a^n\cdot a^k$ and, since $a^n$ is
+    \hyperref[prop:power of zero divisor is not zero divisor]{not a zero divisor}, we can
+    \hyperref[prop:cancellation iff not zero divisor]{cancel out} to see that $a^k=1$.
+    This means $a^{k-1}$ is a multiplicative inverse of $a$, so $a$ is a unit.
+\end{proof}
 
 \end{document}
