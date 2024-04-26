@@ -8,7 +8,7 @@ LATEXMK_COMMAND: list[str] = ['latexmk', '-pdf']
 PANDOC_COMMAND: list[str] = ['pandoc', '--mathjax', '--to=html5']
 TEMPLATE_FILE: str = 'template.html'
 
-INPUTS: list[str] = ['index', 'algebra']
+INPUTS: list[str] = ['index', 'math340']
 FORMAT_INPUT: str = '{}.tex'
 FORMAT_OUTPUT: str = '{}.html'
 FORMAT_DOWNLOAD: str = '{}.pdf'
